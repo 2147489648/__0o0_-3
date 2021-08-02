@@ -10,8 +10,7 @@ with open('setting.json', mode='r', encoding='utf8') as jfile:
 class React(Cog_Extension):
     @commands.command()
     async def image(self, ctx):
-        pic = discord.File(jdata['PIC'])
-        await ctx.send(file=pic)
+        await ctx.send(jdata['PIC'])
 
     @commands.command()
     async def roll(self, ctx):
