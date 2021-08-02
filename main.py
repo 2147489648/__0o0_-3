@@ -14,7 +14,7 @@ intents.typing = False
 intents.presences = False
 intents.members = True
 
-bot = commands.Bot(command_prefix= '[', intents=intents)
+bot = commands.Bot(command_prefix= '[', intents=intents, owner_id=633082846138990614)
 
 @bot.event
 async def on_ready():
@@ -23,17 +23,17 @@ async def on_ready():
 @bot.command()
 async def load(ctx, extension):
     bot.load_extension(f'cmds.{extension}')
-    await ctx.send(f'Loaded {extension} .')
+    await ctx.send(f'Loaded {extension}.')
 
 @bot.command()
 async def unload(ctx, extension):
     bot.unload_extension(f'cmds.{extension}')
-    await ctx.send(f'Unloaded {extension} .')
+    await ctx.send(f'Unloaded {extension}.')
 
 @bot.command()
 async def reload(ctx, extension):
     bot.reload_extension(f'cmds.{extension}')
-    await ctx.send(f'Reloaded {extension} .')
+    await ctx.send(f'Reloaded {extension}.')
 
 for Filename in os.listdir('./cmds'):
     if Filename.endswith('.py'):

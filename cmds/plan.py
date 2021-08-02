@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from core.classes import Cog_Extension
+import global_
 import json
 
 with open('setting.json', mode='r', encoding='utf8') as jfile:
@@ -10,12 +11,15 @@ class Plan(Cog_Extension):
     @commands.command()
     async def revise(self, ctx):
         await ctx.send(jdata['REVISE'])
-
+ 
     @commands.command()
-    async def score(self, ctx, score:int, value:int):
-        score += value
-        await ctx.channel.purge(limit=1)
-        await ctx.send('Your score is {} now!'.format(score))
+    async def score(self, ctx, value:int):
+        if ctx.author.id == 633082846138990614:
+            global_.score += value
+            await ctx.channel.purge(limit=1)
+            await ctx.send('Your score is {} now!'.format(global_.score))
+        else:
+            await ctx.send("__0o0_'s score is {} now! You do not have the permission to do this.".format(global_.score))
 
 
 
