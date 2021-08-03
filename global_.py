@@ -1,3 +1,6 @@
+import numpy
 score = 0
 quest = [["Daliy", "Daliy", "Daliy", "Special", "Special", "Special"],["Revise", "Practice guitar", "Sport", "Homework", "Practise Violin", "Reflection"],[30,30,0,30,45,0],[225,125,125,175,200,50],["https://img.wattpad.com/26f4f1a756153722d513b5d6dcf51672ccafd259/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f55384d524642446e4c53546a77413d3d2d3836373535323338362e313630363566386465643163633335393232393835313630303537382e6a7067?s=fit&w=720&h=720", "https://tsukiyonohikari.files.wordpress.com/2013/11/playing-guitar.jpg?w=768&h=434", "https://qph.fs.quoracdn.net/main-qimg-fe8dc210a19177d202d7b4869f272743", "https://cdn131.picsart.com/339025319007201.jpg?type=webp&to=min&r=640", "https://media.istockphoto.com/vectors/violin-vector-id885815266?k=6&m=885815266&s=612x612&w=0&h=k4Z76blCGKHCMWetsnOAyn2Xhqyc8KJNwd8L9TNsqoQ=", "https://i.ytimg.com/vi/IfqIx2-EZzA/maxresdefault.jpg"]]
 items = [["Game potion", "Youtube potion"], ["Use it to gain 15 minutes of Game", "Use it to gain 15 minutes of Youtube"], [15,15], ["Rare", "Rare"], [175, 150]]
+inventory = []
+a = 0

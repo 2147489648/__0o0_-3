@@ -17,7 +17,7 @@ class Main(Cog_Extension):
     
     @commands.command()
     async def h(self, ctx):
-        embed=discord.Embed(title="Hello everyone!", url="https://jikman.files.wordpress.com/2015/06/rin-best-girl-end.jpg?resize=648%2C363", description="I am __0o0_'s robot. Feel free to find me if you want.", color=0x00b3ff)
+        embed=discord.Embed(title="Hello everyone!", url="https://jikman.files.wordpress.com/2015/06/rin-best-girl-end.jpg?resize=648%2C363", description="I am \_\_0o0\_'s bot. Feel free to find me if you want.", color=0x00b3ff)
         embed.set_author(name="__0o0_", url="https://jikman.files.wordpress.com/2015/06/older-rin-tohsaka.jpg?resize=648%2C366", icon_url="https://jikman.files.wordpress.com/2015/06/older-rin-tohsaka.jpg?resize=648%2C366")
         embed.set_thumbnail(url="https://jikman.files.wordpress.com/2015/06/rin-best-girl-end.jpg?resize=648%2C363")
         embed.add_field(name="[ping", value="Displays bot latency", inline=False)
