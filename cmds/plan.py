@@ -13,13 +13,19 @@ class Plan(Cog_Extension):
         await ctx.send(jdata['REVISE'])
  
     @commands.command()
-    async def score(self, ctx, value:int):
+    async def bank(self, ctx, msg, value:int):
+      if msg == 'change':
         if ctx.author.id == 633082846138990614:
-            global_.score += value
-            await ctx.channel.purge(limit=1)
-            await ctx.send('Your score is {} now!'.format(global_.score))
+          global_.score += value
+          await ctx.channel.purge(limit=1)
+          await ctx.send('You have ${} now!'.format(global_.score))
         else:
-            await ctx.send("__0o0_'s score is {} now! You do not have the permission to do this.".format(global_.score))
+          await ctx.send("__0o0_ has ${} now!".format(global_.score))
+      elif msg == 'show':
+        if ctx.author.id == 633082846138990614:
+          await ctx.send('You have ${} now!'.format(global_.score))
+        else:
+          await ctx.send("__0o0_ has ${} now!".format(global_.score))
 
 
 
