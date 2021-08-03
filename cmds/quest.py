@@ -9,7 +9,21 @@ with open('setting.json', mode='r', encoding='utf8') as jfile:
 
 class Quest(Cog_Extension):
     @commands.command()
-    async def createquest(self, ctx, quest_type, quest_name, quest_description, quest_score):
+    async def questlist(self, ctx):
+      a = len(global_.daliyquest[0])
+      b = 0
+      while a > b:
+        embed=discord.Embed(title="Quest description:", color=0x00b3ff)
+        embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
+        embed.add_field(name="Name", value=global_.daliyquest[0][b], inline=True)
+        embed.add_field(name="Time", value="{} mins".format(global_.daliyquest[1][b]), inline=True)
+        embed.add_field(name="Reward", value="{} score".format(global_.daliyquest[2][b]), inline=True)
+        embed.set_footer(text="Created by __0o0_#5740")
+        await ctx.send(embed=embed)
+        b += 1
+'''
+    @commands.command()
+    async def questcreate(self, ctx, quest_type, quest_name, quest_description, quest_score):
         if ctx.author.id == 633082846138990614:
             embed=discord.Embed(title="The quest *{}* was successfully created.".format(quest_name), description="Description: {}".format(quest_description), color=0x00b3ff)
             embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
@@ -17,6 +31,6 @@ class Quest(Cog_Extension):
             embed.add_field(name="Reward", value=quest_score, inline=True)
             embed.set_footer(text="Created by __0o0_#5740")
             await ctx.send(embed=embed)
-            
+'''
 def setup(bot):
   bot.add_cog(Quest(bot))
