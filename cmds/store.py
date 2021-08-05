@@ -28,7 +28,7 @@ class Store(Cog_Extension):
     while b < len(global_.items[0]):
       if msg == global_.items[0][b]:
         if global_.score >= global_.items[4][b]:
-          embed=discord.Embed(title="Store", description="You have just successfully bought an item.".format(), color=0x00ff62)
+          embed=discord.Embed(title="Store", description="You have just successfully bought an item.", color=0x00ff62)
           embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
           embed.add_field(name="Name", value=global_.items[0][b], inline=True)
           embed.add_field(name="Description", value=global_.items[1][b], inline=True)

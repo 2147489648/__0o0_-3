@@ -33,7 +33,7 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def clear(self, ctx, num:int):
-        await ctx.channel.purge(limit=num+1)
+        await ctx.channel.purge(limit=num+1)    
 
 
 def setup(bot):

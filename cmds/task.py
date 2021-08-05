@@ -7,15 +7,16 @@ with open('setting.json', mode='r', encoding='utf8') as jfile:
     jdata = json.load(jfile)
 
 class Task(Cog_Extension):
+  
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         async def interval():
             await self.bot.wait_until_ready()
-            self.channel = self.bot.get_channel(795641935540912179)
+            self.channel = self.bot.get_channel(872830944434868294)
             while not self.bot.is_closed():
                 await self.channel.send("Hi! I'm operating now!")
-                await asyncio.sleep(1800)
+                await asyncio.sleep(600)
         
         self.bg_task = self.bot.loop.create_task(interval())
 

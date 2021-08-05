@@ -19,6 +19,8 @@ bot = commands.Bot(command_prefix="[", intents=intents, owner_id=633082846138990
 @bot.event
 async def on_ready():
     print(">> __0o0_ 的專屬機械人在線了 <<")
+    channel = bot.get_channel(795641935540912179)
+    await channel.send('>> \_\_0o0\_ 的專屬機械人在線了 <<')
 
 @bot.command()
 async def load(ctx, extension):

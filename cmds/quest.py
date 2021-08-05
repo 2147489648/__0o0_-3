@@ -1,5 +1,5 @@
 import discord
-import json
+import json, asyncio
 import global_
 from discord.ext import commands
 from core.classes import Cog_Extension
@@ -57,6 +57,32 @@ class Quest(Cog_Extension):
               await ctx.send('You have ${} now!'.format(global_.score))
               break
             x += 1
+        elif msg == 'started':
+          y = 0
+          while len(global_.quest[0]) > y:
+            if global_.quest[1][y] == msg2:
+              embed=discord.Embed(title="Quest started", description="You started a quest.", color=0x00b3ff)
+              embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
+              embed.set_thumbnail(url=global_.quest[4][y])
+              embed.add_field(name="Quest type", value=global_.quest[0][y], inline=False)
+              embed.add_field(name="Quest name", value=global_.quest[1][y], inline=False)
+              embed.add_field(name="Quest duration", value="{} mins".format(global_.quest[2][y]), inline=False)
+              embed.add_field(name="Quest reward", value="${}".format(global_.quest[3][y]), inline=False)
+              embed.set_footer(text="Created by __0o0_#5740")
+              await ctx.send(embed=embed)
+              await asyncio.sleep(global_.quest[2][y]*60)
+              embed=discord.Embed(title="Quest finished", description="Congratulations! You completed a quest.", color=0x00ff62)
+              embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
+              embed.set_thumbnail(url=global_.quest[4][y])
+              embed.add_field(name="Quest type", value=global_.quest[0][y], inline=False)
+              embed.add_field(name="Quest name", value=global_.quest[1][y], inline=False)
+              embed.add_field(name="Reward", value="${}".format(global_.quest[3][y]), inline=False)
+              embed.set_footer(text="Created by __0o0_#5740")
+              await ctx.send(embed=embed)
+              global_.score += global_.quest[3][y]
+              await ctx.send('You have ${} now!'.format(global_.score))
+              break
+            y += 1
       else:
         await ctx.send('Sorry! You do not have the permission to do this.')
 
