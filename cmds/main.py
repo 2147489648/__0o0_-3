@@ -25,6 +25,11 @@ class Main(Cog_Extension):
         embed.add_field(name="[h", value="Shows a list of commands", inline=False)
         embed.set_footer(text="Created by __0o0_#5740")
         await ctx.send(embed=embed)
+    @commands.command()
+    async def a(self, ctx):
+      file_object = open('global_.py', 'a+')
+      file_object.write('hello')
+      file_object.close()
 
     @commands.command()
     async def rewrite(self, ctx, *, msg):

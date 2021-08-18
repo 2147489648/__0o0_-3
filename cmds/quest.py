@@ -14,14 +14,14 @@ class Quest(Cog_Extension):
         if msg == 'list':
           if msg2 == 'all':
             b = 0
-            while len(global_.quest[0]) > b:
+            while len(global_.quest) > b:
               embed=discord.Embed(title="Quest information:", color=0x00b3ff)
               embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-              embed.set_thumbnail(url=global_.quest[4][b])
-              embed.add_field(name="Quest type", value=global_.quest[0][b], inline=False)
-              embed.add_field(name="Quest name", value=global_.quest[1][b], inline=False)
-              embed.add_field(name="Quest time", value="{} mins".format(global_.quest[2][b]), inline=False)
-              embed.add_field(name="Quest reward", value="${}".format(global_.quest[3][b]), inline=False)
+              embed.set_thumbnail(url=global_.quest[b][5])
+              embed.add_field(name="Quest type", value=global_.quest[b][0], inline=False)
+              embed.add_field(name="Quest name", value=global_.quest[b][1], inline=False)
+              embed.add_field(name="Quest time", value="{} mins".format(global_.quest[b][2]), inline=False)
+              embed.add_field(name="Quest reward", value="${}".format(global_.quest[b][3]), inline=False)
               embed.set_footer(text="Created by __0o0_#5740")
               await ctx.send(embed=embed)
               b += 1
@@ -31,11 +31,11 @@ class Quest(Cog_Extension):
               if msg2 == global_.quest[0][b]:
                 embed=discord.Embed(title="Quest information:", color=0x00b3ff)
                 embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-                embed.set_thumbnail(url=global_.quest[4][b])
-                embed.add_field(name="Quest type", value=global_.quest[0][b], inline=False)
-                embed.add_field(name="Quest name", value=global_.quest[1][b], inline=False)
-                embed.add_field(name="Quest time", value="{} mins".format(global_.quest[2][b]), inline=False)
-                embed.add_field(name="Quest reward", value="${}".format(global_.quest[3][b]), inline=False)
+                embed.set_thumbnail(url=global_.quest[b][5])
+                embed.add_field(name="Quest type", value=global_.quest[b][0], inline=False)
+                embed.add_field(name="Quest name", value=global_.quest[b][1], inline=False)
+                embed.add_field(name="Quest time", value="{} mins".format(global_.quest[b][2]), inline=False)
+                embed.add_field(name="Quest reward", value="${}".format(global_.quest[b][3]), inline=False)
                 embed.set_footer(text="Created by __0o0_#5740")
                 await ctx.send(embed=embed)
                 b += 1
@@ -43,43 +43,43 @@ class Quest(Cog_Extension):
                 b += 1
         elif msg == 'finished':
           x = 0
-          while len(global_.quest[0]) > x:
-            if global_.quest[1][x] == msg2:
+          while len(global_.quest) > x:
+            if global_.quest[x][1] == msg2:
               embed=discord.Embed(title="Quest finished", description="Congratulations! You completed a quest.", color=0x00ff62)
               embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-              embed.set_thumbnail(url=global_.quest[4][x])
-              embed.add_field(name="Quest type", value=global_.quest[0][x], inline=False)
-              embed.add_field(name="Quest name", value=global_.quest[1][x], inline=False)
-              embed.add_field(name="Reward", value="${}".format(global_.quest[3][x]), inline=False)
+              embed.set_thumbnail(url=global_.quest[x][5])
+              embed.add_field(name="Quest type", value=global_.quest[x][0], inline=False)
+              embed.add_field(name="Quest name", value=global_.quest[x][1], inline=False)
+              embed.add_field(name="Reward", value="${}".format(global_.quest[x][3]), inline=False)
               embed.set_footer(text="Created by __0o0_#5740")
               await ctx.send(embed=embed)
-              global_.score += global_.quest[3][x]
+              global_.score += global_.quest[x][3]
               await ctx.send('You have ${} now!'.format(global_.score))
               break
             x += 1
         elif msg == 'started':
           y = 0
-          while len(global_.quest[0]) > y:
-            if global_.quest[1][y] == msg2:
+          while len(global_.quest) > y:
+            if global_.quest[y][1] == msg2:
               embed=discord.Embed(title="Quest started", description="You started a quest.", color=0x00b3ff)
               embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-              embed.set_thumbnail(url=global_.quest[4][y])
-              embed.add_field(name="Quest type", value=global_.quest[0][y], inline=False)
-              embed.add_field(name="Quest name", value=global_.quest[1][y], inline=False)
-              embed.add_field(name="Quest duration", value="{} mins".format(global_.quest[2][y]), inline=False)
-              embed.add_field(name="Quest reward", value="${}".format(global_.quest[3][y]), inline=False)
+              embed.set_thumbnail(url=global_.quest[y][5])
+              embed.add_field(name="Quest type", value=global_.quest[y][0], inline=False)
+              embed.add_field(name="Quest name", value=global_.quest[y][1], inline=False)
+              embed.add_field(name="Quest duration", value="{} mins".format(global_.quest[y][2]), inline=False)
+              embed.add_field(name="Quest reward", value="${}".format(global_.quest[y][3]), inline=False)
               embed.set_footer(text="Created by __0o0_#5740")
               await ctx.send(embed=embed)
-              await asyncio.sleep(global_.quest[2][y]*60)
+              await asyncio.sleep(global_.quest[y][2]*60)
               embed=discord.Embed(title="Quest finished", description="Congratulations! You completed a quest.", color=0x00ff62)
               embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-              embed.set_thumbnail(url=global_.quest[4][y])
-              embed.add_field(name="Quest type", value=global_.quest[0][y], inline=False)
-              embed.add_field(name="Quest name", value=global_.quest[1][y], inline=False)
-              embed.add_field(name="Reward", value="${}".format(global_.quest[3][y]), inline=False)
+              embed.set_thumbnail(url=global_.quest[y][5])
+              embed.add_field(name="Quest type", value=global_.quest[y][0], inline=False)
+              embed.add_field(name="Quest name", value=global_.quest[y][1], inline=False)
+              embed.add_field(name="Reward", value="${}".format(global_.quest[y][3]), inline=False)
               embed.set_footer(text="Created by __0o0_#5740")
               await ctx.send(embed=embed)
-              global_.score += global_.quest[3][y]
+              global_.score += global_.quest[y][3]
               await ctx.send('You have ${} now!'.format(global_.score))
               break
             y += 1

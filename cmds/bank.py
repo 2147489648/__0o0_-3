@@ -36,9 +36,9 @@ class Bank(Cog_Extension):
             embed.add_field(name="Name", value=global_.inventory[x], inline=True)
             b = 0
             while len(global_.items[0]) > b:
-              if global_.items[0][b] == global_.inventory[x]:
-                embed.add_field(name="Description", value=global_.items[1][b], inline=True)
-                embed.add_field(name="Rarity", value=global_.items[3][b], inline=True)
+              if global_.items[b][0] == global_.inventory[x]:
+                embed.add_field(name="Description", value=global_.items[b][1], inline=True)
+                embed.add_field(name="Rarity", value=global_.items[b][3], inline=True)
                 embed.set_footer(text="Created by __0o0_#5740")
                 b += 1                
               else:
@@ -54,13 +54,13 @@ class Bank(Cog_Extension):
       if ctx.author.id == 633082846138990614:
         z = 0
         while len(global_.items) > z:
-          if item == global_.items[0][z]:
+          if item == global_.items[z][0]:
             embed=discord.Embed(title="Item added", description="You have just successfully added an item to your inventory.", color=0x00ff62)
             embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-            embed.add_field(name="Name", value=global_.items[0][z], inline=True)
-            embed.add_field(name="Description", value=global_.items[1][z], inline=True)
-            embed.add_field(name="Rarity", value=global_.items[3][z], inline=True)
-            embed.add_field(name="Price", value="${}".format(global_.items[4][z]), inline=False)
+            embed.add_field(name="Name", value=global_.items[z][0], inline=True)
+            embed.add_field(name="Description", value=global_.items[z][1], inline=True)
+            embed.add_field(name="Rarity", value=global_.items[z][3], inline=True)
+            embed.add_field(name="Price", value="${}".format(global_.items[z][4]), inline=False)
             embed.set_footer(text="Created by __0o0_#5740")
             await ctx.send(embed=embed)
             global_.inventory.append(global_.items[0][z])
@@ -73,16 +73,16 @@ class Bank(Cog_Extension):
       if ctx.author.id == 633082846138990614:
         z = 0
         while len(global_.items) > z:
-          if item == global_.items[0][z]:
+          if item == global_.items[z][0]:
             embed=discord.Embed(title="Item removed", description="You have just successfully removed an item in your inventory.", color=0x00ff62)
             embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-            embed.add_field(name="Name", value=global_.items[0][z], inline=True)
-            embed.add_field(name="Description", value=global_.items[1][z], inline=True)
-            embed.add_field(name="Rarity", value=global_.items[3][z], inline=True)
-            embed.add_field(name="Price", value="${}".format(global_.items[4][z]), inline=False)
+            embed.add_field(name="Name", value=global_.items[z][0], inline=True)
+            embed.add_field(name="Description", value=global_.items[z][1], inline=True)
+            embed.add_field(name="Rarity", value=global_.items[z][3], inline=True)
+            embed.add_field(name="Price", value="${}".format(global_.items[z][4]), inline=False)
             embed.set_footer(text="Created by __0o0_#5740")
             await ctx.send(embed=embed)
-            global_.inventory.remove(global_.items[0][z])
+            global_.inventory.remove(global_.items[z][0])
             break
           z += 1
       else:
@@ -92,22 +92,22 @@ class Bank(Cog_Extension):
       if ctx.author.id == 633082846138990614:
         z = 0
         while len(global_.items) > z:
-          if item == global_.items[0][z]:
+          if item == global_.items[z][0]:
             embed=discord.Embed(title="Item/Items uesd", description="You have just successfully used {} item/items in your inventory.".format(num), color=0x00ff62)
             embed.set_author(name="Hi! I am __0o0_'s Robot.", icon_url="https://i.pinimg.com/originals/6e/53/5b/6e535b2f01ffb2daa02b6072a908a2a2.jpg")
-            embed.add_field(name="Name", value=global_.items[0][z], inline=True)
-            embed.add_field(name="Description", value=global_.items[1][z], inline=True)
-            embed.add_field(name="Rarity", value=global_.items[3][z], inline=True)
-            embed.add_field(name="Price", value="${}".format(global_.items[4][z]), inline=False)
+            embed.add_field(name="Name", value=global_.items[z][0], inline=True)
+            embed.add_field(name="Description", value=global_.items[z][1], inline=True)
+            embed.add_field(name="Rarity", value=global_.items[z][3], inline=True)
+            embed.add_field(name="Price", value="${}".format(global_.items[z][4]), inline=False)
             embed.set_footer(text="Created by __0o0_#5740")
             await ctx.send(embed=embed)
             u = 0
-            while num > u and item == global_.items[0][z]:
-              global_.inventory.remove(global_.items[0][z])
+            while num > u and item == global_.items[z][0]:
+              global_.inventory.remove(global_.items[z][0])
               u += 1
-              await asyncio.sleep(global_.items[2][z]*60)
+              await asyncio.sleep(global_.items[z][2]*60)
               embed=discord.Embed()
-              embed.add_field(name="Duration ended", value='The duration of the item "{}" is ended.'.format(global_.items[0][z]), inline=False)
+              embed.add_field(name="Duration ended", value='The duration of the item "{}" is ended.'.format(global_.items[z][0]), inline=False)
               await ctx.send(embed=embed)
             break
           z += 1

@@ -37,6 +37,17 @@ async def reload(ctx, extension):
     bot.reload_extension(f'cmds.{extension}')
     await ctx.send(f'Reloaded {extension}.')
 
+@bot.command()
+async def register(ctx):
+  file = open('hello.txt', 'a+')
+  file.seek(0)
+  file.write("{}\n".format(ctx.author.id))
+  file.write("0\n")
+  file.close()
+  await ctx.send('Congrats {}! You sucessfully registered!'.format(ctx.author.name))
+
+def search():
+
 for Filename in os.listdir('./cmds'):
     if Filename.endswith('.py'):
         bot.load_extension(f'cmds.{Filename[:-3]}')
